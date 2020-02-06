@@ -12,9 +12,13 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <!-- Estilos -->
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family= Zhi + Mang + Xing & display = swap" rel="stylesheet">
 </head>
 
-<body>
+
+<body style="background-color: aqua;">
   <div class="container-fluid">
     <!-- Nav tabs -->
     <ul class="nav nav-tabs mt-2" id="navId">
@@ -34,6 +38,9 @@
           <a class="dropdown-item" href="#tab4Id">Eliminar Categoria</a>
         </div>
       </li>
+      <li>
+        <h3 id="texto_nav">Truch Trello</h3>
+      </li>
       <!-- <li class="nav-item">
         <a href="#tab5Id" class="nav-link">Another link</a>
       </li>
@@ -49,15 +56,12 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Nueva Tarea</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
           </div>
           <div class="modal-body">
             <form id="formulario">
               <div class="form-group">
                 <label for="recipient-name" class="col-form-label">Titulo:</label>
-                <input type="text" id="titulo" class="form-control">
+                <input type="text" id="titulo" class="form-control" maxlength="30">
               </div>
               <div class="form-group">
                 <label for="message-text" class="col-form-label">Comentario:</label>
@@ -75,20 +79,29 @@
 
     <!-- Aqui defino la lista -->
     <div class="row mt-5">
-      <div  id="inicio"class="col-xs-12 col-sm-6 col-md-3">
+      <div id="inicio" class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
         <h4>Tarea</h4>
         <ul id="ulInicio"></ul>
       </div>
-      <div id="progreso" class="col-xs-12 col-sm-6 col-md-3">
+      <div id="progreso" class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
         <h4>En Progreso</h4>
         <ul id="ulProgreso"></ul>
       </div>
-      <div id="completado"class="col-xs-12 col-sm-6 col-md-3">
+      <div id="completado" class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
         <h4>Completadas</h4>
         <ul id="ulTerminado"></ul>
       </div>
     </div>
 
+    <!-- Modal para mostra comentarios -->
+
+    <div id="openModal" class="modalDialog">
+      <div>
+        <a href="#close" title="Close" class="close">X</a>
+        <h2 id="tituloModal"></h2>
+        <p id="comentarioModal"></p>
+      </div>
+    </div>
     <!-- <script>
     $('#navId a').click(e => {
       e.preventDefault();

@@ -20,32 +20,35 @@ class Tarea {
 }
 
 function muestra(idx) {
-    // console.log(idx);
-    // switch (tareas[idx].estado) {
-    //     case "inicio":
-    //         tareas[idx].estado = "progreso";
-    //         break;
-    //     case "progreso":
-    //         tareas[idx].estado = "terminado";
-    //         break;
-    //     default:
-    //         break;
-    // }
-    // localStorage.setItem('tareas', JSON.stringify(tareas));
-    // listar();
+    document.getElementById("tituloModal").innerHTML = JSON.stringify(tareas[idx].titulo);
+    document.getElementById("comentarioModal").innerHTML = JSON.stringify(tareas[idx].comentario);
 }
 
 // const progreso = [];
 // const terminado = [];
 // const aTareas = [inicio, progreso, terminado];
-
+function elimina(idx) {
+    tareas.splice(idx, 1);
+    localStorage.setItem('tareas', JSON.stringify(tareas));
+    listar();
+}
 
 function nuevaTarea() {
     let titulo = document.getElementById("titulo").value;
     let comentario = document.getElementById("comentario").value;
     let tarea = new Tarea(titulo, comentario, "inicio");
     // document.getElementById('guardar').focus();
-    tarea.guardar();
+    if (titulo) {
+        // if (tareas.indexOf(titulo) > -1){
+        //     alert("Ya existe la tarea!");
+        // }
+        // else{
+            tarea.guardar();
+    //     }
+    }
+    else {
+        alert('Debe ingresar un nombre de tarea');
+    }
     document.getElementById("formulario").reset();
     // listar();
 }
@@ -78,10 +81,10 @@ function listar() {
         }
         if (tareas[idx].comentario != "") {
             // ulLista.innerHTML += `<li id="lista"  style="margin-top:15px; color:orange" class="d-flex justify-content-between">${tarea.titulo} <button onclick='cambiar(${idx})' style="background-color: blue;color: seashell">Adelante</button></li>`;
-            ulLista.innerHTML += `<li id="lista_completa" onclick='muestra(${idx})' class="d-flex justify-content-between p-1 ">${tarea.titulo}</li>`;
+            ulLista.innerHTML += `<li id="lista_completa" onclick='muestra(${idx})' class="d-flex justify-content-between p-1 ">${tarea.titulo} <a href="#openModal"> <i class="far fa-comment-alt"></i></a> <i class="fas fa-trash-alt" onclick='elimina(${idx})' </i> </li>`;
         } else {
             // ulLista.innerHTML += `<li id="lista"  style="margin-top:15px" class="d-flex justify-content-between">${tarea.titulo} <button onclick='cambiar(${idx})' style="background-color: blue;color: seashell">Adelante</button></li>`;
-            ulLista.innerHTML += `<li id="lista" class="d-flex justify-content-between p-1">${tarea.titulo}</li>`;
+            ulLista.innerHTML += `<li id="lista" class="d-flex justify-content-between p-1">${tarea.titulo} <i class="fas fa-trash-alt" onclick='elimina(${idx})'</i></li>`;
         }
     });
 }
