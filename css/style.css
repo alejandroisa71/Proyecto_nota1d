@@ -1,0 +1,30 @@
+/* #lista{
+    background-color:rgb(165, 173, 148);
+    /* color: white; */
+*
+/* #muestra{
+    display: none;
+} */
+h4{
+  margin: auto; 
+  text-align: center; 
+}
+#ulInicio,#ulProgreso,#ulTerminado{
+border-style: solid;
+border-color: darkgreen;
+background-color: darksalmon;
+margin-right: 20px;
+height: 300px;
+overflow: auto;
+padding: 1rem;
+}
+#lista,#lista_completa{
+    margin-top:15px;
+    background-color:rgb(247, 243, 243);
+    font-weight: bold;
+    margin-right: 20 px;
+
+}
+#lista_completa{
+    color: orange;
+}
