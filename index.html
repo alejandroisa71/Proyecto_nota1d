@@ -15,6 +15,18 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family= Zhi + Mang + Xing & display = swap" rel="stylesheet">
+  <script>
+    
+    
+    function inhabilitar(){
+        // alert ("Esta función está inhabilitada.\n\nPerdonen las molestias.")
+        return false
+    }
+    
+    document.oncontextmenu=inhabilitar
+    
+    // -->
+    </script>
 </head>
 
 
@@ -52,7 +64,7 @@
     <!-- Modal  para ingreso de nueva nota-->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
       aria-hidden="true">
-      <div class="modal-dialog" role="document">
+      <div class="modal-dialog  modal-sm" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Nueva Tarea</h5>
@@ -76,6 +88,34 @@
         </div>
       </div>
     </div>
+    <!-- Modal para modificar -->
+    <div class="modal fade" id="modificar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog  modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Tarea</h5>
+        </div>
+        <div class="modal-body">
+          <form id="formulario">
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Titulo:</label>
+              <input type="text" id="titulo1" class="form-control" maxlength="30">
+            </div>
+            <div class="form-group">
+              <label for="message-text" class="col-form-label">Comentario:</label>
+              <textarea id="comentario1" class="form-control"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button id="guardar" type="button" class="btn btn-primary" onclick="modificaTarea(i)">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
     <!-- Aqui defino la lista -->
     <div class="row mt-5">
@@ -87,11 +127,12 @@
         <h4>En Progreso</h4>
         <ul id="ulProgreso"></ul>
       </div>
-      <div id="completado" class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+      <div id="terminado" class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
         <h4>Completadas</h4>
         <ul id="ulTerminado"></ul>
       </div>
     </div>
+    <!-- <p id="demo"></p> -->
 
     <!-- Modal para mostra comentarios -->
 
